@@ -30,10 +30,11 @@ Album_ID INTEGER not null references Album(Album_ID)
 CREATE TABLE IF NOT EXISTS collection_of_songs(
 Collection_ID SERIAL primary key,
 Collection_name text not null,
-Collection_year_of_issue DATE not null,
-Song_ID INTEGER not null
+Collection_year_of_issue DATE not null
 );
+
 CREATE TABLE IF NOT EXISTS Collection_Song(
 ID SERIAL primary key,
-Song_ID INTEGER not null references Songs(Song_id)
+Song_ID INTEGER not null references Songs(Song_id),
+Collection_ID INTEGER not null references collection_of_songs(Collection_ID)
 );
